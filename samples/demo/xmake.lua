@@ -1,0 +1,5 @@
+target("demo")
+    set_group("04.demo")
+    set_kind("binary")
+    add_deps("AICore", {public = false})
+    add_files("main.cpp")

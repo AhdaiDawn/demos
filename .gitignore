@@ -1,0 +1,26 @@
+# Xmake cache
+/.xmake
+/build
+/vsxmake
+/vsxmake*
+xmake.log
+
+# clangd
+/.clangd
+/.cache
+compile_commands.json
+
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Makefile
+
+/.vs
+
+# MacOS Cache
+.DS_Store
+
+# user
+*.log
+project.lua
