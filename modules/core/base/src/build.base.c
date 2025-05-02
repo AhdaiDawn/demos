@@ -3,9 +3,9 @@
     #include <emmintrin.h>
 #endif
 #define XXH_INLINE_ALL
-#include "xxhash3/xxhash.h"
+#include "xxhash/xxhash.h"
 
-size_t ai_hash(const void* buffer, size_t size, size_t seed)
+size_t ai_hash(const void *buffer, size_t size, size_t seed)
 {
 #if SIZE_MAX == UINT64_MAX
     return XXH64(buffer, size, seed);
@@ -16,12 +16,12 @@ size_t ai_hash(const void* buffer, size_t size, size_t seed)
 #endif
 }
 
-uint64_t ai_hash64(const void* buffer, uint64_t size, uint64_t seed)
+uint64_t ai_hash64(const void *buffer, uint64_t size, uint64_t seed)
 {
     return XXH3_64bits_withSeed(buffer, size, seed);
 }
 
-uint32_t ai_hash32(const void* buffer, uint32_t size, uint32_t seed)
+uint32_t ai_hash32(const void *buffer, uint32_t size, uint32_t seed)
 {
     return XXH32(buffer, size, seed);
 }

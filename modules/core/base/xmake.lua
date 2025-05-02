@@ -1,5 +1,6 @@
 static_component("AIBase", "AICore")
     ai_unity_build()
     add_deps("AICompileFlags", {public = true})
+    add_deps("xxhash", {public = true})
     add_includedirs("include", {public = true})
     add_files("src/build.*.c", "src/build.*.cpp")

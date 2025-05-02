@@ -9,7 +9,7 @@ ai_env_set("engine_dir", os.scriptdir())
 default_unity_batch = 16
 
 add_moduledirs("xmake/modules")
--- add_plugindirs("xmake/plugins")
+add_plugindirs("xmake/plugins")
 add_repositories("ai-xrepo xrepo", {rootdir = os.scriptdir()})
 includes("xmake/options.lua")
 includes("xmake/compile_flags.lua")

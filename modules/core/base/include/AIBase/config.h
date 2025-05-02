@@ -16,6 +16,10 @@
     #include <float.h>
 #endif
 
+// platform & compiler marcos
+#include "AIBase/config/compiler.h"
+#include "AIBase/config/platform.h"
+
 // keywords
 #include "AIBase/config/key_words.h"
 

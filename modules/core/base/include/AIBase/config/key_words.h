@@ -143,23 +143,23 @@
 #endif
 
 #if defined(__cplusplus)
-    #define AI_DECLARE_ZERO(type, var)                                                                \
-        static_assert(std::is_trivially_constructible<type>::value, "not trival, 0 init is invalid!"); \
+    #define AI_DECLARE_ZERO(type, var)                                                                                 \
+        static_assert(std::is_trivially_constructible<type>::value, "not trival, 0 init is invalid!");                 \
         type var = {};
 #else
-    #define AI_DECLARE_ZERO(type, var) type var = { 0 };
+    #define AI_DECLARE_ZERO(type, var) type var = {0};
 #endif
 
 // VLA
 #ifndef __cplusplus
     #if defined(_MSC_VER) && !defined(__clang__)
-        #define AI_DECLARE_ZERO_VLA(type, var, num)          \
-            type* var = (type*)_alloca(sizeof(type) * (num)); \
-            memset((void*)(var), 0, sizeof(type) * (num));
+        #define AI_DECLARE_ZERO_VLA(type, var, num)                                                                    \
+            type *var = (type *)_alloca(sizeof(type) * (num));                                                         \
+            memset((void *)(var), 0, sizeof(type) * (num));
     #else
-        #define AI_DECLARE_ZERO_VLA(type, var, num) \
-            type var[(num)];                         \
-            memset((void*)(var), 0, sizeof(type) * (num));
+        #define AI_DECLARE_ZERO_VLA(type, var, num)                                                                    \
+            type var[(num)];                                                                                           \
+            memset((void *)(var), 0, sizeof(type) * (num));
     #endif
 #endif
 
@@ -194,7 +194,8 @@
 
 #ifndef CHAR8_T_DEFINED // If the user hasn't already defined these...
     #if defined(EA_PLATFORM_APPLE)
-        #define char8_t char // The Apple debugger is too stupid to realize char8_t is typedef'd to char, so we #define it.
+        #define char8_t                                                                                                \
+            char // The Apple debugger is too stupid to realize char8_t is typedef'd to char, so we #define it.
     #else
 typedef char char8_t;
     #endif
@@ -206,27 +207,27 @@ typedef char char8_t;
 #pragma region typedecl
 
 #ifdef __cplusplus
-    #define AI_DECLARE_TYPE_ID_FWD(ns, type, ctype) \
-        namespace ns                                 \
-        {                                            \
-        struct type;                                 \
-        }                                            \
-        using ctype##_t  = ns::type;                 \
-        using ctype##_id = ns::type*;
+    #define AI_DECLARE_TYPE_ID_FWD(ns, type, ctype)                                                                    \
+        namespace ns                                                                                                   \
+        {                                                                                                              \
+        struct type;                                                                                                   \
+        }                                                                                                              \
+        using ctype##_t = ns::type;                                                                                    \
+        using ctype##_id = ns::type *;
 #else
-    #define AI_DECLARE_TYPE_ID_FWD(ns, type, ctype) \
-        typedef struct ctype##_t ctype##_t;          \
-        typedef struct ctype*    ctype##_id;
+    #define AI_DECLARE_TYPE_ID_FWD(ns, type, ctype)                                                                    \
+        typedef struct ctype##_t ctype##_t;                                                                            \
+        typedef struct ctype *ctype##_id;
 #endif
 
 #ifdef __cplusplus
-    #define AI_DECLARE_TYPE_ID(type, ctype) \
-        typedef struct type ctype##_t;       \
-        typedef type*       ctype##_id;
+    #define AI_DECLARE_TYPE_ID(type, ctype)                                                                            \
+        typedef struct type ctype##_t;                                                                                 \
+        typedef type *ctype##_id;
 #else
-    #define AI_DECLARE_TYPE_ID(type, ctype) \
-        typedef struct ctype##_t ctype##_t;  \
-        typedef ctype##_t*       ctype##_id;
+    #define AI_DECLARE_TYPE_ID(type, ctype)                                                                            \
+        typedef struct ctype##_t ctype##_t;                                                                            \
+        typedef ctype##_t *ctype##_id;
 #endif
 
 #pragma endregion
@@ -248,7 +249,6 @@ typedef char char8_t;
     #error "big endian is not supported"
 #endif
 
-
 #pragma region deprecated
 
 #if defined(__has_cpp_attribute)
@@ -269,8 +269,8 @@ typedef char char8_t;
 
 #pragma endregion
 
-#define DISABLE_COPY_AND_MOVE(ClassName) \
-    ClassName(const ClassName&) = delete; \
-    ClassName& operator=(const ClassName&) = delete; \
-    ClassName(ClassName&&) = delete; \
-    ClassName& operator=(ClassName&&) = delete;
+#define DISABLE_COPY_AND_MOVE(ClassName)                                                                               \
+    ClassName(const ClassName &) = delete;                                                                             \
+    ClassName &operator=(const ClassName &) = delete;                                                                  \
+    ClassName(ClassName &&) = delete;                                                                                  \
+    ClassName &operator=(ClassName &&) = delete;

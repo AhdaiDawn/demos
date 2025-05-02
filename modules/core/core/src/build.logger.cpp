@@ -15,7 +15,7 @@ class Logger::Impl
         mLogger = Logger::CreateOrGet();
     }
 
-    auto GetLogger() -> quill::Logger *
+    auto get() -> quill::Logger *
     {
         return mLogger;
     }
@@ -27,7 +27,7 @@ class Logger::Impl
 auto Logger::Get() -> quill::Logger *
 {
     static Logger s_instance;
-    return s_instance.mImpl->GetLogger();
+    return s_instance.mImpl->get();
 }
 
 auto Logger::CreateOrGet(const char *name) -> quill::Logger *
