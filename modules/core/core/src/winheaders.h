@@ -3,10 +3,7 @@
     #define WIN32_LEAN_AND_MEAN
 #endif
 
-#include <commdlg.h>  // IWYU pragma: export
 #include <new.h>      // IWYU pragma: export
-#include <psapi.h>    // IWYU pragma: export
-#include <shlobj.h>   // IWYU pragma: export
 #include <shlwapi.h>  // IWYU pragma: export
 #include <timeapi.h>  // IWYU pragma: export
 #include <winbase.h>  // IWYU pragma: export
