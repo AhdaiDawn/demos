@@ -33,3 +33,4 @@ includes("modules")
 
 ai_includes_with_cull("tests")
 ai_includes_with_cull("samples")
+ai_includes_with_cull("experiment")

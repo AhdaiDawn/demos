@@ -1,5 +1,6 @@
 ai_cull("tests")
 ai_cull("samples")
+ai_cull("experiment")
 
 -- set_config("cxx_version","cxx20")
 -- set_config("c_version","c11")
