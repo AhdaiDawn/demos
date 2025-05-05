@@ -11,6 +11,7 @@ shared_module("AICore", "AI_CORE")
     add_deps("stduuid", {public = true})
     add_deps("nlohmann_json", {public = true})
     add_deps("ctre", {public = true})
+    add_deps("range-v3", {public = true})
 
     add_includedirs("include", {public = true})
     add_files("src/build.*.c", "src/build.*.cpp")

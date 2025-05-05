@@ -2,8 +2,8 @@
 #include "AIBase/misc/hash.hpp"
 #include "AICore/crash.h"
 #include "AICore/logger.hpp"
+#include "range/v3/all.hpp"
 #include <cstdint>
-#include <quill/core/LogLevel.h>
 
 using namespace AI;
 
@@ -21,6 +21,14 @@ static struct ProcInitializer
     }
 } init;
 
+void test_range()
+{
+    using namespace ranges;
+    auto vec = views::iota(1, 5) | views::transform([](int v) { return v * 2; }) | ranges::to<std::vector>();
+    AI_LOG_INFO("vec: ");
+    for_each(vec, [](int i) { AI_LOG_INFO("{}", i); });
+}
+
 int main(int argc, char *argv[])
 {
     AI_LOG_ERROR("hello world");
@@ -33,8 +41,10 @@ int main(int argc, char *argv[])
     auto hash_str = ai_hash(str.data(), str.size(), AI_DEFAULT_HASH_SEED_64);
     AI_LOG_INFO("str: {},hash:{}", str, hash_str);
 
-    int *b = nullptr;
-    *b = 9;
+    test_range();
+
+    // int *b = nullptr;
+    // *b = 9;
 
     return 0;
 }
